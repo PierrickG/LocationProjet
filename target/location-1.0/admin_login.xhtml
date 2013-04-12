@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Accueil</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Connexion : <br />
+            <p>
+                Login : <h:inputText id="textBoxLogin" value="#{loginController.user.username}" size="20" /><br />
+                Mot de passe : <h:inputText id="textBoxPass" value="#{loginController.user.password}" size="20" />
+            </p>
+            <h:commandButton value="Se connecter" action="#{loginController.doLogin}"/>
+        </h:form>
+    </h:body>
+</html>

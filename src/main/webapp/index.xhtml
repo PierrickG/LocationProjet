@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Accueil</title>
+         <LINK rel="stylesheet" type="text/css" href="css/style.css"/>
+    </h:head>
+    <h:body>
+        <div id="global">
+            <div id="entete">
+                <h:form>
+                    Rechercher : 
+                    <h:inputText id="textBoxRecherche" value="#{filmController.recherch}" size="40" />
+                     <h:commandButton value="Rechercher" action="#{filmController.rechercher()}"/><br/>
+                     <h:commandLink  action="#{panierController.voirPanier()}">Panier (<h:outputText escape="false" value="#{panierController.nbInPanier()}"/>)</h:commandLink>
+                </h:form>
+            </div>
+            <div id="centre">
+                <div id="navigation"><a href="index.xhtml">Accueil</a>
+                                    <a href="login.xhtml">Connexion</a>
+                                    <a href="inscription.xhtml">Inscription</a>
+                                    <a href="private/moncompte.xhtml">Mon Compte</a>
+                                    <a href="admin/administration.xhtml">Administration</a></div>
+                <div id="contenu">
+                    <h:form>
+                        <h:dataTable value="#{filmController.filmListR}" var="fl" border="0">
+                            <h:column>
+                                <h:commandLink  action="#{filmController.doRead}">
+                                    <div id="FicheFilm">
+                                    <h:outputText escape="false" value="#{fl.simpletoString()}"/>
+                                    </div>
+                                </h:commandLink>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </h:body>
+    
+
+</html>

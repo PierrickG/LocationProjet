@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Nouveau film</title>
+</h:head>
+<h:body>
+    <h1>Nouveau film</h1>
+    <hr/>
+    <h:form>
+        <table border="0">
+            <tr>
+                <td><h:outputLabel value="Titre : "/></td>
+                <td><h:inputText value="#{filmController.film.nom}" required="true" size="30"/>
+                </td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="Realisateur :"/></td>
+                <td><h:inputText value="#{filmController.film.realisateur}" required="true" size="30"/></td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="Acteur : "/></td>
+                <td><h:inputText value="#{filmController.film.acteur}" required="true" size="50"/></td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="Duree  : "/></td>
+                <td><h:inputText value="#{filmController.film.duree}" required="true" size="3"/></td>
+            </tr>
+            <tr>
+                <td><h:outputLabel value="Date de sortie : "/></td>
+                <td><h:inputText value="#{filmController.film.annee}" required="true" size="4"/></td>
+            </tr>
+            
+            <tr>
+                <td><h:outputLabel value="3D : "/></td>
+                <td><h:selectBooleanCheckbox value="#{filmController.film.threeD}" /></td>
+            </tr>
+            
+            <tr>
+                <td><h:outputLabel value="Genre: "/></td>
+                <h:selectManyCheckbox value="filmController.film.genre" required="true">
+                    <f:selectItem itemValue="Action" itemLabel="Action"/>
+                    <f:selectItem itemValue="Aventure" itemLabel="Aventure"/>
+                    <f:selectItem itemValue="Thriller" itemLabel="Thriller"/>
+                    <f:selectItem itemValue="Comedie" itemLabel="Comedie"/>
+                    <f:selectItem itemValue="Comedie" itemLabel="Fantastique"/>
+                    <f:selectItem itemValue="Comedie" itemLabel="Horreur"/>
+               </h:selectManyCheckbox><br/>
+            </tr>
+        </table>
+
+        <h:commandButton value="Créer" action="#{filmController.doCreate}"/>
+    </h:form>
+
+    <h:form>
+        <h:commandButton value="Annuler" action="#{filmController.doCancel}"/>
+    </h:form>
+    <hr/>
+
+</h:body>
+</html>

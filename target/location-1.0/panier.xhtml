@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <script type="text/javascript" language="javascript">
+            function confirmDelete(){
+                if (confirm("Voulez-vous annuler la location ?"))
+                    return true;
+                return false;
+            }
+        </script>
+        <title>Panier</title>
+         <LINK rel="stylesheet" type="text/css" href="css/style.css"/>
+    </h:head>
+    <h:body>
+        <div id="global">
+            <div id="entete">
+                <h:form>
+                    Rechercher : 
+                    <h:inputText id="textBoxRecherche" value="#{filmController.recherch}" size="40" />
+                     <h:commandButton value="Rechercher" action="#{filmController.rechercher()}"/><br/>  
+                </h:form>
+            </div>
+            <div id="centre">
+                <div id="navigation"><a href="index.xhtml">Accueil</a>
+                                    <a href="login.xhtml">Connexion</a>
+                                    <a href="inscription.xhtml">Inscription</a>
+                                    <a href="private/moncompte.xhtml">Mon Compte</a>
+                                    <a href="admin/administration.xhtml">Administration</a></div>
+                <div id="contenu">
+                    Panier :
+        <h:form>
+            <h:dataTable value="#{panierController.locationList}" var="ll" border="0">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Titre"/>
+                    </f:facet>
+                    <h:commandLink action="#{filmController.doRead(ll.getFilm())}" value="#{panierController.titreFilm(ll)}" />
+                </h:column>
+                <h:column>   
+                    <f:facet name="header">
+                        <h:outputText value="Debut"/>
+                    </f:facet>
+                        <h:outputText escape="false" value="#{ll.dateDebut}"/>
+                </h:column>
+                <h:column>   
+                    <f:facet name="header">
+                        <h:outputText value="Retour"/>
+                    </f:facet>
+                        <h:outputText escape="false" value="#{ll.dateFin}"/>
+                </h:column>
+                <h:column>   
+                    <f:facet name="header">
+                        <h:outputText value="Action"/>
+                    </f:facet>
+                    <h:commandLink action="#{panierController.doAnnuler(ll)}" onclick="return confirmDelete();">Annuler</h:commandLink>
+                </h:column>
+                <hr/>
+            </h:dataTable>
+        </h:form>
+                    </div>
+                </div>
+            </div>
+    </h:body>
+</html>

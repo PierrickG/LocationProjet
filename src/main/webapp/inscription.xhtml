@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Inscription</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            Inscription : <br />
+            <p>
+                <table border="0">
+                    <tr><td>Nom d'utilisateur : <h:inputText id="textBoxUserNameInscription" value="#{loginController.user.username}" size="15" required="true"/></td></tr>
+                    <tr><td>Mot de Passe : <h:inputText id="textBoxPassInscription" value="#{loginController.user.password}" size="20" required="true"/></td></tr>
+                    <tr><td>Nom : <h:inputText id="textBoxNomInscription" value="#{loginController.user.nom}" size="15" required="true"/></td></tr>
+                    <tr><td>Prénom : <h:inputText id="textBoxPrenomInscription" value="#{loginController.user.prenom}" size="15" required="true"/></td></tr>
+                    <tr><td>Adresse E-Mail : <h:inputText id="textBoxMailInscription" value="#{loginController.user.email}" size="20" required="true"/></td></tr>
+                </table>
+            </p>
+            <h:commandButton value="S'inscrire" action="#{loginController.doCreate}"/>
+        </h:form>
+    </h:body>
+</html>
